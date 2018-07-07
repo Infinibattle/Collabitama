@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using OnitamaTestClient.Enums;
+using Collabitama.Client.Enums;
 
-namespace OnitamaTestClient.Models {
+namespace Collabitama.Client.Models {
     public class GameState {
         public List<Card> MyHand { get; set; }
         public List<Card> OpponentsHand { get; set; }

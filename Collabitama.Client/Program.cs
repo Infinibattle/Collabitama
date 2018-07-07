@@ -1,11 +1,11 @@
 ﻿using System;
+using Collabitama.Client.Enums;
+using Collabitama.Client.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using OnitamaTestClient.Enums;
-using OnitamaTestClient.Models;
 using RemoteBotClient;
 
-namespace OnitamaTestClient {
+namespace Collabitama.Client {
     internal static class Program {
         private const string ApiKey = "APIKEY_HERE";
 
