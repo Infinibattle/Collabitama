@@ -7,7 +7,7 @@ using RemoteBotClient;
 
 namespace OnitamaTestClient {
     internal static class Program {
-        private const string ApiKey = "APIKEY_HERE";
+        private const string ApiKey = "4d27b833-dc09-4371-8198-bcd1dd68c72f";
 
         private static void Main(string[] args) {
             var botInterface = RemoteBotClientInitializer.Init(ApiKey, false);
