@@ -26,16 +26,20 @@ namespace OnitamaTestClient {
             var data = botInterface.ReadLine();
             var message = Deserialize<Message>(data);
 
-            if (message.Type == MessageType.GameInfo) return Deserialize<GameInfo>(message.JsonPayload).Identity;
+            if (message.Type == MessageType.GameInfo) {
+                return Deserialize<GameInfo>(message.JsonPayload).Identity;
+            }
 
             throw new Exception($"Expected to read GameInfo message, instead received: {message.Type}");
         }
 
         private static GameState ReadGameState(IBotInterface botInterface) {
             var data = botInterface.ReadLine();
-
             var message = JsonConvert.DeserializeObject<Message>(data);
-            if (message.Type == MessageType.NewGameState) return Deserialize<GameState>(message.JsonPayload);
+
+            if (message.Type == MessageType.NewGameState) {
+                return Deserialize<GameState>(message.JsonPayload);
+            }
 
             throw new Exception($"Expected to read NewGameState message, instead received: {message.Type}");
         }

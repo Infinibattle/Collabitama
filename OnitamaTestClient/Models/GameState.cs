@@ -22,7 +22,9 @@ namespace OnitamaTestClient.Models {
 
             //upper board deliminations
             stringBuilder.Append(" + ");
-            for (var i = 0; i < dimX; i++) stringBuilder.Append($" {i} ");
+            for (var i = 0; i < dimX; i++) {
+                stringBuilder.Append($" {i} ");
+            }
 
             stringBuilder.Append(" + ");
             stringBuilder.Append("\n");
@@ -49,10 +51,11 @@ namespace OnitamaTestClient.Models {
 
             //lower board deliminations
             stringBuilder.Append(" + ");
-            for (var i = 0; i < dimX; i++) stringBuilder.Append($" {i} ");
+            for (var i = 0; i < dimX; i++) {
+                stringBuilder.Append($" {i} ");
+            }
 
             stringBuilder.Append(" + ");
-
             stringBuilder.Append("\n");
 
             return stringBuilder.ToString();
@@ -70,8 +73,12 @@ namespace OnitamaTestClient.Models {
 
         public string PrintCard(Card card) {
             var stringBuilder = new StringBuilder();
+
             stringBuilder.Append("Card: " + card.Type + "\n");
-            foreach (var target in card.Targets) stringBuilder.Append("(" + target.X + ", " + target.Y + ")  ");
+
+            foreach (var target in card.Targets) {
+                stringBuilder.Append("(" + target.X + ", " + target.Y + ")  ");
+            }
 
             return stringBuilder.ToString();
         }

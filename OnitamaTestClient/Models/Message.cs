@@ -1,6 +1,6 @@
 ﻿using OnitamaTestClient.Enums;
 
-namespace OnitamaTestClient
+namespace OnitamaTestClient.Models
 {
     public class Message
     {
