@@ -1,5 +1,4 @@
-﻿namespace OnitamaTestClient.Models.Enums
-{
+﻿namespace OnitamaTestClient.Enums {
     public enum CardType {
         Tiger,
         Dragon,
