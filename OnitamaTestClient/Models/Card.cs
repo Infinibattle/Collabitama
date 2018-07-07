@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using OnitamaTestClient.Models.Enums;
+﻿using OnitamaTestClient.Enums;
 
 namespace OnitamaTestClient.Models {
     public class Card {

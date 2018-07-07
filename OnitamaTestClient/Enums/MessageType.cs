@@ -1,11 +1,4 @@
-﻿namespace OnitamaTestClient
-{
-    public class Message
-    {
-        public MessageType Type { get; set; }
-        public string JsonPayload { get; set; }
-    }
-
+﻿namespace OnitamaTestClient.Enums {
     public enum MessageType {
         //bot to game
         MovePiece,

@@ -1,4 +1,4 @@
-﻿using OnitamaTestClient.Models.Enums;
+﻿using OnitamaTestClient.Enums;
 
 namespace OnitamaTestClient.Models {
     public class Piece {

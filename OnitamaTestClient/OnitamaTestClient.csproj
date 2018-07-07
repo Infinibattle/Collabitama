@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <None Remove="bot.conf" />
+    <None Remove="Makefile" />
+    <None Remove="publish.ps1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,12 +28,6 @@
     <Reference Include="RemoteBotClient">
       <HintPath>RemoteBotClient.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="lib\RemoteBotClient.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

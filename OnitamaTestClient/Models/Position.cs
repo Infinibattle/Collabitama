@@ -4,24 +4,24 @@
         public int Y { get; set; }
 
         public Position(int x, int y) {
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
         }
 
         public void Up(int up) {
-            this.Y += up;
+            Y += up;
         }
 
         public void Down(int down) {
-            this.Y -= down;
+            Y -= down;
         }
 
         public void Left(int left) {
-            this.X -= left;
+            X -= left;
         }
 
         public void Right(int right) {
-            this.X += right;
+            X += right;
         }
 
         public static Position operator +(Position a, Position b) {
@@ -34,8 +34,8 @@
 
         public override bool Equals(object obj) {
             try {
-                var position = (Position)obj;
-                return this.X == position.X && this.Y == position.Y;
+                var position = (Position) obj;
+                return X == position.X && Y == position.Y;
             }
             catch {
                 return false;
@@ -45,18 +45,19 @@
         public static bool operator ==(Position a, Position b) {
             return a.Equals(b);
         }
+
         public static bool operator !=(Position a, Position b) {
             return !a.Equals(b);
         }
 
         public override int GetHashCode() {
             unchecked {
-                return (this.X*397) ^ this.Y;
+                return (X * 397) ^ Y;
             }
         }
 
         public override string ToString() {
-            return $"{{X: {this.X} Y: {this.Y} }}";
+            return $"{{X: {X} Y: {Y} }}";
         }
 
         public static implicit operator Position((int x, int y) vector) {

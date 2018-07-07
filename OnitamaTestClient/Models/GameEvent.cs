@@ -1,27 +1,26 @@
-﻿using System;
-using OnitamaTestClient.Models.Enums;
+﻿using OnitamaTestClient.Enums;
 
 namespace OnitamaTestClient.Models {
     public abstract class Move {
-        public CardType UsedCard { get; }
-
         private Move(CardType usedCard) {
-            this.UsedCard = usedCard;
+            UsedCard = usedCard;
         }
+
+        public CardType UsedCard { get; }
 
         public class Pass : Move {
             public Pass(CardType usedCard) : base(usedCard) { }
         }
 
         public class Play : Move {
-            public Position From { get; }
-            public Position To { get; }
-
             public Play(CardType usedCard, Position from, Position to)
                 : base(usedCard) {
-                this.From = from;
-                this.To = to;
+                From = from;
+                To = to;
             }
+
+            public Position From { get; }
+            public Position To { get; }
         }
     }
 }
