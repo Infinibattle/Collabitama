@@ -1,6 +1,6 @@
-﻿using OnitamaTestClient.Enums;
+﻿using Collabitama.Client.Enums;
 
-namespace OnitamaTestClient.Models {
+namespace Collabitama.Client.Models {
     public class Card {
         public CardType Type { get; set; }
         public Position[] Targets { get; set; }

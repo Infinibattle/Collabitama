@@ -1,6 +1,6 @@
-﻿using OnitamaTestClient.Enums;
+﻿using Collabitama.Client.Enums;
 
-namespace OnitamaTestClient.Models {
+namespace Collabitama.Client.Models {
     public class GameInfo {
         public PlayerIdentityEnum Identity { get; set; }
     }
