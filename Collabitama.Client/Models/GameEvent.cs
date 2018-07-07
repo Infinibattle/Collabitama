@@ -1,6 +1,6 @@
-﻿using OnitamaTestClient.Enums;
+﻿using Collabitama.Client.Enums;
 
-namespace OnitamaTestClient.Models {
+namespace Collabitama.Client.Models {
     public abstract class Move {
         private Move(CardType usedCard) {
             UsedCard = usedCard;

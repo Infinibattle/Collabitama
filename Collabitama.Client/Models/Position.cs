@@ -1,4 +1,4 @@
-﻿namespace OnitamaTestClient.Models {
+﻿namespace Collabitama.Client.Models {
     public struct Position {
         public int X { get; set; }
         public int Y { get; set; }

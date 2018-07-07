@@ -1,4 +1,4 @@
-﻿namespace OnitamaTestClient.Enums {
+﻿namespace Collabitama.Client.Enums {
     public enum MessageType {
         //bot to game
         MovePiece,

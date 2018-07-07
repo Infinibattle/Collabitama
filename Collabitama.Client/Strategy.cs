@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using OnitamaTestClient.Enums;
-using OnitamaTestClient.Models;
+using Collabitama.Client.Enums;
+using Collabitama.Client.Models;
 
-namespace OnitamaTestClient {
+namespace Collabitama.Client {
     public static class Strategy {
         public static Move GetNextMove(GameState gamestate, PlayerIdentityEnum identity) {
             var possibleMoves = GetPossibleMoves(gamestate).ToList();
