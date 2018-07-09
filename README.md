@@ -11,3 +11,18 @@ Votes are made by using reactions on the top level comment of the Pull Request.
 An `Abstain` vote counts when calculating quorum but is discarded when checking to see if the vote passed.
 
 Voting for more than one option can be disabled on a per project basis.
+
+## Synchronizing a fork
+### 1. Clone your fork:
+git clone git@github.com:YOUR-USERNAME/YOUR-FORKED-REPO.git
+
+### 2. Add remote from original repository in your forked repository:
+cd into/cloned/fork-repo
+git remote add upstream git://github.com/ORIGINAL-DEV-USERNAME/REPO-YOU-FORKED-FROM.git
+git fetch upstream
+
+### 3. Rebase your fork from original repo to keep up with their changes:
+git rebase upstream/master
+
+### 4. Force push it to your fork.
+git push --force
