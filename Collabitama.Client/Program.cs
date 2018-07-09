@@ -1,51 +1,45 @@
 ﻿using System;
 using Collabitama.Client.Enums;
+using Collabitama.Client.Helpers;
 using Collabitama.Client.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using RemoteBotClient;
 
 namespace Collabitama.Client {
     internal static class Program {
         private const string ApiKey = "4d27b833-dc09-4371-8198-bcd1dd68c72f";
 
-        private static void Main(string[] args) {
-            var botInterface = RemoteBotClientInitializer.Init(ApiKey, false);
-            var identity = GetIdentity(botInterface);
+        private static void Main() {
+            var botInterface = new AsyncBotInterface(ApiKey, 2000);
+            var identity = PlayerIdentityEnum.Unknown;
 
             while (true) {
-                var gamestate = ReadGameState(botInterface);
-                var nextMove = Strategy.GetNextMove(gamestate, identity);
-                var asMessage = CreateMessage(nextMove);
+                try {
+                    var data = botInterface.ReadLine();
+                    var message = Deserialize<Message>(data);
 
-                botInterface.WriteLine(Serialize(asMessage));
+                    switch (message.Type) {
+                        case MessageType.GameInfo:
+                            identity = Deserialize<GameInfo>(message.JsonPayload).Identity;
+                            break;
+                        case MessageType.NewGameState:
+                            var gamestate = Deserialize<GameState>(message.JsonPayload);
+                            var move = Strategy.GetNextMove(gamestate, identity);
+
+                            botInterface.WriteLine(CreateMessage(move));
+                            break;
+                    }
+                }
+                catch (TimeoutException) {
+                    Environment.Exit(0);
+                }
             }
         }
 
-        private static PlayerIdentityEnum GetIdentity(IBotInterface botInterface) {
-            var data = botInterface.ReadLine();
-            var message = Deserialize<Message>(data);
-
-            if (message.Type == MessageType.GameInfo) {
-                return Deserialize<GameInfo>(message.JsonPayload).Identity;
-            }
-
-            throw new Exception($"Expected to read GameInfo message, instead received: {message.Type}");
-        }
-
-        private static GameState ReadGameState(IBotInterface botInterface) {
-            var data = botInterface.ReadLine();
-            var message = JsonConvert.DeserializeObject<Message>(data);
-
-            if (message.Type == MessageType.NewGameState) {
-                return Deserialize<GameState>(message.JsonPayload);
-            }
-
-            throw new Exception($"Expected to read NewGameState message, instead received: {message.Type}");
-        }
-
-        private static Message CreateMessage(Move command) {
-            var message = new Message {JsonPayload = Serialize(command)};
+        private static string CreateMessage(Move command) {
+            var message = new Message {
+                JsonPayload = Serialize(command)
+            };
 
             switch (command) {
                 case Move.Play _:
@@ -56,7 +50,7 @@ namespace Collabitama.Client {
                     break;
             }
 
-            return message;
+            return Serialize(message);
         }
 
         private static T Deserialize<T>(string serialized) where T : new() {
