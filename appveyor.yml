@@ -4,5 +4,10 @@ before_build:
 - cmd: dotnet restore
 build:
   project: Collabitama.sln
+  parallel: true
   verbosity: normal
+test:
+  assemblies:
+    only:
+    - Collabitama.Tests.dll
 deploy: off
