@@ -18,7 +18,9 @@ git clone git@github.com:YOUR-USERNAME/Collabitama.git
 
 ### 2. Add remote from original repository in your forked repository:
 cd into/cloned/Collabitama
+
 git remote add upstream git@github.com:Infinibattle/Collabitama.git
+
 git fetch upstream
 
 ### 3. Rebase your fork from original repo to keep up with their changes:
